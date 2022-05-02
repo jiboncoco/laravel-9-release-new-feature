@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// grouping route custom from controller or route excluding controller resource
+Route::controller(PostController::class)->group(function() {
+    Route::get('posts', 'index');
+    Route::get('posts/{id}', 'show');
 });
