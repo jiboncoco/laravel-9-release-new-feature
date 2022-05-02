@@ -22,5 +22,7 @@ Route::get('/', function () {
 // grouping route custom from controller or route excluding controller resource
 Route::controller(PostController::class)->group(function() {
     Route::get('posts', 'index');
-    Route::get('posts/{id}', 'show');
+    Route::get('posts/{id}', 'show')->name('posts.show');
 });
+
+// Route::resource('posts', PostController::class);

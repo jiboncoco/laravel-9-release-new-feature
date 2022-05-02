@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,7 +14,23 @@ class PostController extends Controller
      */
     public function index()
     {
-        return 'ini adalah method post controller';
+        // simple case
+        // return Str::upper('Achmad Fauzi');
+
+        // for 2 case implementation
+        // $string = Str::snake('Achmad Fauzi');
+        // return Str::reverse($string);
+
+        // implementation to object
+        // return Str::of('Achmad Fauzi')->snake()->reverse();
+
+        // implementation from object to string
+        // return Str::of('Achmad Fauzi')->snake()->reverse()->value;
+
+        // implementation stringable in laravel 9, you can use str only
+        return str('Achmad Fauzi')->snake()->reverse()->value;
+
+        // return 'ini adalah method post controller';
     }
 
     /**
